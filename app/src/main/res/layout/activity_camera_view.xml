@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/semi_transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".custom.CameraViewActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/showCapturedImage"
+        android:scaleType="centerCrop"
+        />
+    <com.otaliastudios.cameraview.CameraView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cameraMode="picture"
+
+        android:id="@+id/cameraView"
+        >
+        <RelativeLayout
+            android:id="@+id/imageHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            app:layout_drawOnPreview="true"
+            app:layout_drawOnPictureSnapshot="true"
+            app:layout_drawOnVideoSnapshot="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/_bread"
+
+                android:id="@+id/bread"
+                />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/_banana"
+                android:id="@+id/nuts"
+                />
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:visibility="invisible"
+                android:id="@+id/facePoint"
+                android:src="@drawable/circle"
+                />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/_chicken"
+
+                android:id="@+id/upcomming"
+                />
+        </RelativeLayout>
+
+    </com.otaliastudios.cameraview.CameraView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/coordinate1"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:layout_marginEnd="50dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/coordinate2"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="50dp"
+            android:textColor="@color/white"
+
+            />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_icon_background"
+
+            android:padding="5dp"
+            android:src="@drawable/close" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/focusView"
+            android:visibility="invisible"
+            android:src="@drawable/camera_focus"
+            android:layout_centerInParent="true"
+
+            />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/capturedHolder"
+            android:layout_width="70dp"
+            android:layout_height="250dp"
+            android:layout_centerVertical="true" />
+
+        <com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/capturedHolder"
+            android:layout_marginStart="5dp"
+            app:loader_animDur="100"
+            app:loader_bigCircleRadius="15dp"
+            app:loader_circleRadius="2dp"
+            app:loader_defaultColor="@color/purple_200"
+            app:loader_firstShadowColor="@color/purple_500"
+            app:loader_secondShadowColor="@color/purple_200"
+            app:loader_selectedColor="@color/purple_500"
+            app:loader_showRunningShadow="true" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/capturesHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp">
+
+
+            <ImageView
+                android:id="@+id/lastCapturedImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/round_icon_background"
+                android:padding="7dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/stack_tint"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="50dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/capture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="captureImage"
+                android:layout_gravity="center"
+                android:background="@drawable/capture_button_background"
+
+                 />
+
+            <ImageView
+                android:id="@+id/switch_camera"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="50dp"
+                android:onClick="switchCameraLense"
+
+                android:background="@drawable/round_icon_background"
+
+                android:layout_alignTop="@+id/lastCapturedImage"
+                android:padding="7dp"
+                android:src="@drawable/change" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/curved_icon">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_gravity="center_horizontal"
+                android:padding="7dp"
+                android:src="@drawable/camera_settings" />
+            <ImageView
+                android:id="@+id/flashlight"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+
+                android:src="@drawable/flash_on" />
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="50dp"
+
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="170dp"
+            android:orientation="vertical"
+            android:minHeight="50dp"
+            android:layout_marginEnd="7dp"
+            >
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="70dp"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                android:layout_above="@+id/filterButton"
+                android:id="@+id/filterSet"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/filterButton"
+                android:src="@drawable/emoji_tint"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal"
+                />
+        </RelativeLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+
+            />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible"
+
+            android:background="#74000000"
+
+            app:tabContentStart="90dp"
+            app:tabGravity="center"
+
+            app:tabIndicator="@drawable/indicator_up"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="bottom"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/white" />
+
+    </RelativeLayout>
+</RelativeLayout>
